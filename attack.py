@@ -33,7 +33,7 @@ class Attack(QMainWindow, Ui_MainWindow):
         self.pinga = self.ping()
 
         if not self.pinga:
-            self.ipLabel.setText(f'Não foi possível se conectar ao ip: {self.inputIP.text()}')
+            self.ipLabel.setText(f'Não foi possível se conectar ao IP: {self.inputIP.text()}')
         else:
             attack.close()
             choice.show()
@@ -98,7 +98,14 @@ class Sql(QMainWindow, Ui_Sql_MainWindow):
         choice.show()
 
     def choiceSql(self):
-        pass
+        cursor.execute('SELECT * FROM contatos_categoria')
+        self.resultado1 = cursor.fetchall()
+        self.resultado1 = len(self.resultado1)
+
+        if int(self.inputSQL.text()) == 1:
+            pass
+        elif int(self.inputSQL.text()) == 2:
+            pass
 
 
 class Password(QMainWindow, Ui_Pass_Window):
